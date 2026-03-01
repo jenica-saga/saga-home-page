@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'SMS Consent & Opt-In Policy — Saga AI',
+  title: 'SMS Consent & Opt-In Policy',
   description: 'Learn about Saga AI\'s SMS messaging practices, how to opt in and out, and your rights regarding text message communications.',
 };
 

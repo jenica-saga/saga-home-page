@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service — Saga AI",
+  title: "Terms of Service",
   description: "Terms of Service for Saga Health, Inc.",
 };
 
