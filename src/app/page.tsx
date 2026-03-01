@@ -96,15 +96,15 @@ export default function HomePage() {
                       <span className="ctx-tag inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-medium bg-accent/8 text-accent" data-phase="2"><span className="text-[10px] opacity-60">📅</span> Tue 3pm booked</span>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-2">
+                  <div className="demo-messages flex flex-col gap-2">
                     <div className="dm px-3.5 py-2.5 rounded-[14px] text-[13px] leading-normal max-w-[88%] bg-bg border border-border rounded-br-[4px] self-end ml-auto">Hi, I need to schedule my knee MRI?</div>
-                    <div className="self-start max-w-[88%] mb-0.5">
+                    <div className="think-block self-start max-w-[88%] mb-0.5">
                       <div className="think-step flex items-center gap-2 text-xs text-text-3 py-0.5"><span className="w-3.5 h-3.5 shrink-0 flex items-center justify-center"><span className="think-spinner"></span><span className="think-check">✓</span></span> Checking prior auth status...</div>
                       <div className="think-step flex items-center gap-2 text-xs text-text-3 py-0.5"><span className="w-3.5 h-3.5 shrink-0 flex items-center justify-center"><span className="think-spinner"></span><span className="think-check">✓</span></span> Finding available slots...</div>
                     </div>
                     <div className="dm px-3.5 py-2.5 rounded-[14px] text-[13px] leading-normal max-w-[88%] bg-accent text-white rounded-bl-[4px] self-start" data-ctx-phase="1">Hi Maria! Great news — your MRI auth was approved. I have Tuesday at 3pm at MetroWest Imaging. Want me to book it?</div>
                     <div className="dm px-3.5 py-2.5 rounded-[14px] text-[13px] leading-normal max-w-[88%] bg-bg border border-border rounded-br-[4px] self-end ml-auto">Yes please!</div>
-                    <div className="self-start max-w-[88%] mb-0.5">
+                    <div className="think-block self-start max-w-[88%] mb-0.5">
                       <div className="think-step flex items-center gap-2 text-xs text-text-3 py-0.5"><span className="w-3.5 h-3.5 shrink-0 flex items-center justify-center"><span className="think-spinner"></span><span className="think-check">✓</span></span> Booking appointment...</div>
                       <div className="think-step flex items-center gap-2 text-xs text-text-3 py-0.5"><span className="w-3.5 h-3.5 shrink-0 flex items-center justify-center"><span className="think-spinner"></span><span className="think-check">✓</span></span> Syncing to EHR...</div>
                     </div>
@@ -142,14 +142,14 @@ export default function HomePage() {
                       <span className="ctx-tag inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-medium bg-accent/8 text-accent" data-phase="1"><span className="text-[10px] opacity-60">🗓️</span> Thu 2pm scheduled</span>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-2">
-                    <div className="self-start max-w-[88%] mb-0.5">
+                  <div className="demo-messages flex flex-col gap-2">
+                    <div className="think-block self-start max-w-[88%] mb-0.5">
                       <div className="think-step flex items-center gap-2 text-xs text-text-3 py-0.5"><span className="w-3.5 h-3.5 shrink-0 flex items-center justify-center"><span className="think-spinner"></span><span className="think-check">✓</span></span> Identifying care gap...</div>
                       <div className="think-step flex items-center gap-2 text-xs text-text-3 py-0.5"><span className="w-3.5 h-3.5 shrink-0 flex items-center justify-center"><span className="think-spinner"></span><span className="think-check">✓</span></span> Composing outreach message...</div>
                     </div>
                     <div className="dm px-3.5 py-2.5 rounded-[14px] text-[13px] leading-normal max-w-[88%] bg-accent text-white rounded-bl-[4px] self-start">Hi Jessica, this is Dr. Park&apos;s office. You&apos;re due for a routine screening — can we find you a time?</div>
                     <div className="dm px-3.5 py-2.5 rounded-[14px] text-[13px] leading-normal max-w-[88%] bg-bg border border-border rounded-br-[4px] self-end ml-auto">Oh I keep forgetting. Do you have anything next week?</div>
-                    <div className="self-start max-w-[88%] mb-0.5">
+                    <div className="think-block self-start max-w-[88%] mb-0.5">
                       <div className="think-step flex items-center gap-2 text-xs text-text-3 py-0.5"><span className="w-3.5 h-3.5 shrink-0 flex items-center justify-center"><span className="think-spinner"></span><span className="think-check">✓</span></span> Checking schedule...</div>
                     </div>
                     <div className="dm px-3.5 py-2.5 rounded-[14px] text-[13px] leading-normal max-w-[88%] bg-accent text-white rounded-bl-[4px] self-start">I have Wednesday at 10am or Thursday at 2pm. Which works?</div>
@@ -186,15 +186,15 @@ export default function HomePage() {
                       <span className="ctx-tag inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-medium bg-accent/8 text-accent" data-phase="2"><span className="text-[10px] opacity-60">🔔</span> Auto-notify enabled</span>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-2">
+                  <div className="demo-messages flex flex-col gap-2">
                     <div className="dm px-3.5 py-2.5 rounded-[14px] text-[13px] leading-normal max-w-[88%] bg-bg border border-border rounded-br-[4px] self-end ml-auto">Hi, I&apos;m calling to check on my MRI authorization?</div>
-                    <div className="self-start max-w-[88%] mb-0.5">
+                    <div className="think-block self-start max-w-[88%] mb-0.5">
                       <div className="think-step flex items-center gap-2 text-xs text-text-3 py-0.5"><span className="w-3.5 h-3.5 shrink-0 flex items-center justify-center"><span className="think-spinner"></span><span className="think-check">✓</span></span> Looking up auth status...</div>
                       <div className="think-step flex items-center gap-2 text-xs text-text-3 py-0.5"><span className="w-3.5 h-3.5 shrink-0 flex items-center justify-center"><span className="think-spinner"></span><span className="think-check">✓</span></span> Checking with insurer...</div>
                     </div>
                     <div className="dm px-3.5 py-2.5 rounded-[14px] text-[13px] leading-normal max-w-[88%] bg-accent text-white rounded-bl-[4px] self-start" data-ctx-phase="1">Hi Robert, I found your authorization. It&apos;s still in review with Aetna. Should clear in 2-3 days. Want me to notify you?</div>
                     <div className="dm px-3.5 py-2.5 rounded-[14px] text-[13px] leading-normal max-w-[88%] bg-bg border border-border rounded-br-[4px] self-end ml-auto">Yes, please!</div>
-                    <div className="self-start max-w-[88%] mb-0.5">
+                    <div className="think-block self-start max-w-[88%] mb-0.5">
                       <div className="think-step flex items-center gap-2 text-xs text-text-3 py-0.5"><span className="w-3.5 h-3.5 shrink-0 flex items-center justify-center"><span className="think-spinner"></span><span className="think-check">✓</span></span> Setting up auto-notification...</div>
                     </div>
                     <div className="dm px-3.5 py-2.5 rounded-[14px] text-[13px] leading-normal max-w-[88%] bg-accent text-white rounded-bl-[4px] self-start" data-ctx-phase="2">Done. I&apos;ll text you as soon as it&apos;s approved.</div>
@@ -230,16 +230,16 @@ export default function HomePage() {
                       <span className="ctx-tag inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-medium bg-accent/8 text-accent" data-phase="2"><span className="text-[10px] opacity-60">✅</span> First visit scheduled</span>
                     </div>
                   </div>
-                  <div className="flex flex-col gap-2">
+                  <div className="demo-messages flex flex-col gap-2">
                     <div className="dm px-3.5 py-2.5 rounded-[14px] text-[13px] leading-normal max-w-[88%] bg-accent text-white rounded-bl-[4px] self-start">Welcome Sarah! Dr. Lopez is looking forward to meeting you. Let&apos;s get you set up quickly.</div>
                     <div className="dm px-3.5 py-2.5 rounded-[14px] text-[13px] leading-normal max-w-[88%] bg-bg border border-border rounded-br-[4px] self-end ml-auto">Great! What do I need to do?</div>
-                    <div className="self-start max-w-[88%] mb-0.5">
+                    <div className="think-block self-start max-w-[88%] mb-0.5">
                       <div className="think-step flex items-center gap-2 text-xs text-text-3 py-0.5"><span className="w-3.5 h-3.5 shrink-0 flex items-center justify-center"><span className="think-spinner"></span><span className="think-check">✓</span></span> Pulling referral details...</div>
                       <div className="think-step flex items-center gap-2 text-xs text-text-3 py-0.5"><span className="w-3.5 h-3.5 shrink-0 flex items-center justify-center"><span className="think-spinner"></span><span className="think-check">✓</span></span> Verifying insurance...</div>
                     </div>
                     <div className="dm px-3.5 py-2.5 rounded-[14px] text-[13px] leading-normal max-w-[88%] bg-accent text-white rounded-bl-[4px] self-start" data-ctx-phase="1">I&apos;ve verified your insurance. Can I confirm your current medications quickly?</div>
                     <div className="dm px-3.5 py-2.5 rounded-[14px] text-[13px] leading-normal max-w-[88%] bg-bg border border-border rounded-br-[4px] self-end ml-auto">Sure, I&apos;m on metformin and lisinopril.</div>
-                    <div className="self-start max-w-[88%] mb-0.5">
+                    <div className="think-block self-start max-w-[88%] mb-0.5">
                       <div className="think-step flex items-center gap-2 text-xs text-text-3 py-0.5"><span className="w-3.5 h-3.5 shrink-0 flex items-center justify-center"><span className="think-spinner"></span><span className="think-check">✓</span></span> Recording medications...</div>
                       <div className="think-step flex items-center gap-2 text-xs text-text-3 py-0.5"><span className="w-3.5 h-3.5 shrink-0 flex items-center justify-center"><span className="think-spinner"></span><span className="think-check">✓</span></span> Booking appointment...</div>
                     </div>
