@@ -305,9 +305,85 @@ export default function HomePage() {
               Every agent interaction starts with a complete view: past medical history, active meds, insurance, prior authorizations, and care gaps pulled from your EHR in real-time. No guessing, no repeating information.
             </p>
           </div>
-          <div className="bg-bg rounded-2xl p-8 min-h-[360px] flex items-center justify-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/mockup-integrations.png" alt="Integrations diagram" className="max-w-full h-auto" />
+          <div className="bg-bg rounded-2xl min-h-[360px] flex items-center justify-center">
+            {/* Integrations Diagram */}
+            <div className="w-full max-w-[520px] px-10 py-10 relative">
+              <div className="text-[9px] font-bold text-text-3 uppercase tracking-[1.2px] text-center mb-3">Pulls context from</div>
+              <div className="grid grid-cols-3 gap-4 relative z-[2]">
+                <div className="bg-bg-card border border-border rounded-[14px] p-4 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+                  <div className="w-10 h-10 rounded-[10px] bg-accent-light text-accent flex items-center justify-center mx-auto mb-2">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                  </div>
+                  <div className="text-xs font-bold text-text">EHR Systems</div>
+                  <div className="text-[10px] text-text-2 leading-tight">athenaHealth, Epic, Cerner, eCW</div>
+                </div>
+                <div className="bg-bg-card border border-border rounded-[14px] p-4 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+                  <div className="w-10 h-10 rounded-[10px] bg-[#ede9fe] text-[#6366f1] flex items-center justify-center mx-auto mb-2">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                  </div>
+                  <div className="text-xs font-bold text-text">Insurance</div>
+                  <div className="text-[10px] text-text-2 leading-tight">Eligibility, prior auth, benefits</div>
+                </div>
+                <div className="bg-bg-card border border-border rounded-[14px] p-4 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+                  <div className="w-10 h-10 rounded-[10px] bg-[#fef3e2] text-gold flex items-center justify-center mx-auto mb-2">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                  </div>
+                  <div className="text-xs font-bold text-text">Scheduling</div>
+                  <div className="text-[10px] text-text-2 leading-tight">Calendar, availability, waitlists</div>
+                </div>
+              </div>
+
+              {/* Arrow: Real-time sync */}
+              <div className="flex items-center justify-center gap-2 my-5 relative z-[2]">
+                <div className="h-px flex-1 max-w-[60px] bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+                <div className="bg-accent-light border border-accent/20 rounded-full px-3.5 py-1.5 text-[9px] font-bold text-accent-dark uppercase tracking-wider whitespace-nowrap flex items-center gap-1.5">
+                  <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/></svg>
+                  Real-time sync
+                </div>
+                <div className="h-px flex-1 max-w-[60px] bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+              </div>
+
+              {/* Center node */}
+              <div className="w-[120px] h-[120px] bg-gradient-to-br from-accent to-accent-dark rounded-full flex flex-col items-center justify-center mx-auto relative z-[2] shadow-[0_8px_32px_rgba(43,122,120,0.35),0_0_0_6px_rgba(43,122,120,0.1)]">
+                <div className="font-display text-[22px] font-bold text-white italic tracking-tight">saga</div>
+                <div className="text-[8px] text-white/80 uppercase tracking-[1.5px] mt-0.5">AI Agent</div>
+              </div>
+
+              {/* Arrow: Communicates via */}
+              <div className="flex items-center justify-center gap-2 my-5 relative z-[2]">
+                <div className="h-px flex-1 max-w-[60px] bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+                <div className="bg-accent-light border border-accent/20 rounded-full px-3.5 py-1.5 text-[9px] font-bold text-accent-dark uppercase tracking-wider whitespace-nowrap flex items-center gap-1.5">
+                  <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4"/></svg>
+                  Communicates via
+                </div>
+                <div className="h-px flex-1 max-w-[60px] bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+              </div>
+
+              <div className="text-[9px] font-bold text-text-3 uppercase tracking-[1.2px] text-center mb-3">Reaches patients on</div>
+              <div className="grid grid-cols-3 gap-4 relative z-[2]">
+                <div className="bg-bg-card border border-border rounded-[14px] p-4 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+                  <div className="w-10 h-10 rounded-[10px] bg-accent-light text-accent flex items-center justify-center mx-auto mb-2">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                  </div>
+                  <div className="text-xs font-bold text-text">Voice</div>
+                  <div className="text-[10px] text-text-2 leading-tight">Inbound &amp; outbound calls</div>
+                </div>
+                <div className="bg-bg-card border border-border rounded-[14px] p-4 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+                  <div className="w-10 h-10 rounded-[10px] bg-[#ede9fe] text-[#6366f1] flex items-center justify-center mx-auto mb-2">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                  </div>
+                  <div className="text-xs font-bold text-text">SMS</div>
+                  <div className="text-[10px] text-text-2 leading-tight">Two-way text messaging</div>
+                </div>
+                <div className="bg-bg-card border border-border rounded-[14px] p-4 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+                  <div className="w-10 h-10 rounded-[10px] bg-[#fef3e2] text-gold flex items-center justify-center mx-auto mb-2">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                  </div>
+                  <div className="text-xs font-bold text-text">Email</div>
+                  <div className="text-[10px] text-text-2 leading-tight">Outreach &amp; follow-ups</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -315,9 +391,99 @@ export default function HomePage() {
       {/* ═══ Value Section 2: Act on It ═══ */}
       <section className="py-24 border-b border-border">
         <div className="max-w-[1200px] mx-auto px-10 grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-20 items-center">
-          <div className="bg-bg rounded-2xl p-8 min-h-[360px] flex items-center justify-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/mockup-workflow.png" alt="Workflow and EHR sync" className="max-w-full h-auto" />
+          <div className="bg-bg rounded-2xl min-h-[360px] flex items-center justify-center">
+            {/* Workflow Card */}
+            <div className="w-full max-w-[440px] bg-bg-card rounded-[20px] shadow-[0_24px_80px_rgba(0,0,0,0.1),0_2px_6px_rgba(0,0,0,0.04)] border border-border overflow-hidden">
+              {/* Header */}
+              <div className="bg-gradient-to-br from-accent to-accent-dark px-6 py-5 text-white">
+                <h3 className="text-sm font-bold mb-1">Live Workflow — Maria Rodriguez</h3>
+                <p className="text-[11px] opacity-80">Inbound call • Knee MRI Reschedule</p>
+              </div>
+
+              {/* Steps */}
+              <div className="px-6 py-5">
+                {/* Step 1 */}
+                <div className="flex items-start gap-3.5">
+                  <div className="flex flex-col items-center shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-accent shadow-[0_3px_10px_rgba(43,122,120,0.35)] flex items-center justify-center">
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    </div>
+                    <div className="w-0.5 h-7 bg-[#c2e8c6] my-1"></div>
+                  </div>
+                  <div className="pt-1 pb-5">
+                    <div className="text-[13px] font-semibold text-text">Patient calls in</div>
+                    <div className="text-[11px] text-text-2">&quot;I need to reschedule my knee MRI&quot;</div>
+                  </div>
+                </div>
+
+                {/* Step 2 */}
+                <div className="flex items-start gap-3.5">
+                  <div className="flex flex-col items-center shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-[#eaf7ec] border-2 border-[#2d8a3e] flex items-center justify-center">
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#2d8a3e" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div className="w-0.5 h-7 bg-[#c2e8c6] my-1"></div>
+                  </div>
+                  <div className="pt-1 pb-5">
+                    <div className="text-[13px] font-semibold text-text">Prior auth verified</div>
+                    <div className="text-[11px] text-text-2">Approved • Expires March 15</div>
+                  </div>
+                </div>
+
+                {/* Step 3 */}
+                <div className="flex items-start gap-3.5">
+                  <div className="flex flex-col items-center shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-[#eaf7ec] border-2 border-[#2d8a3e] flex items-center justify-center">
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#2d8a3e" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div className="w-0.5 h-7 bg-[#c2e8c6] my-1"></div>
+                  </div>
+                  <div className="pt-1 pb-5">
+                    <div className="text-[13px] font-semibold text-text">Appointment rescheduled</div>
+                    <div className="text-[11px] text-text-2">Tuesday 3pm • MetroWest Imaging</div>
+                  </div>
+                </div>
+
+                {/* Step 4 */}
+                <div className="flex items-start gap-3.5">
+                  <div className="flex flex-col items-center shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-[#eaf7ec] border-2 border-[#2d8a3e] flex items-center justify-center">
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#2d8a3e" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div className="w-0.5 h-7 bg-[#c2e8c6] my-1"></div>
+                  </div>
+                  <div className="pt-1 pb-5">
+                    <div className="text-[13px] font-semibold text-text">Confirmation sent</div>
+                    <div className="text-[11px] text-text-2">SMS with date, time &amp; prep instructions</div>
+                  </div>
+                </div>
+
+                {/* Step 5 */}
+                <div className="flex items-start gap-3.5">
+                  <div className="flex flex-col items-center shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-[#eaf7ec] border-2 border-[#2d8a3e] flex items-center justify-center">
+                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="#2d8a3e" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                  </div>
+                  <div className="pt-1">
+                    <div className="text-[13px] font-semibold text-accent">Chart updated automatically</div>
+                    <div className="text-[11px] text-text-2">All actions synced to EHR in real time</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* EHR Sync Bar */}
+              <div className="bg-[#f0fafa] border-t border-accent-light px-6 py-3.5 flex items-center gap-2.5">
+                <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="white" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+                </div>
+                <div>
+                  <div className="text-xs font-semibold text-accent-dark">Synced to EHR</div>
+                  <div className="text-[10px] text-text-2">athenaHealth • Updated 2s ago</div>
+                </div>
+                <div className="ml-auto bg-[#eaf7ec] text-[#2d8a3e] text-[10px] font-bold px-2.5 py-1 rounded-xl border border-[#c2e8c6]">✓ Live</div>
+              </div>
+            </div>
           </div>
           <div>
             <div className="font-display text-[56px] font-normal text-accent opacity-50 mb-4">2</div>
@@ -343,9 +509,87 @@ export default function HomePage() {
               Human review on high-priority and sensitive tasks before they go out. Every resolved interaction feeds back into your protocols — so the agent learns as your processes evolve. Your data stays yours. We never train models on it.
             </p>
           </div>
-          <div className="bg-bg rounded-2xl p-8 min-h-[360px] flex items-center justify-center">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/mockup-channels.png" alt="Quality review inbox" className="max-w-full h-auto" />
+          <div className="bg-bg rounded-2xl min-h-[360px] flex items-center justify-center">
+            {/* Review Inbox Mockup */}
+            <div className="w-full max-w-[520px] bg-bg-card rounded-[20px] shadow-[0_24px_80px_rgba(0,0,0,0.1),0_2px_6px_rgba(0,0,0,0.04)] border border-border overflow-hidden">
+              {/* Header */}
+              <div className="bg-gradient-to-br from-accent to-accent-dark px-6 py-4 text-white flex items-center justify-between">
+                <div>
+                  <h3 className="text-sm font-bold">Review Inbox</h3>
+                  <p className="text-[11px] opacity-80 mt-px">Suggested responses awaiting approval</p>
+                </div>
+                <div className="bg-white/20 rounded-full px-3 py-1 text-xs font-bold">3 pending</div>
+              </div>
+
+              {/* Tabs */}
+              <div className="flex border-b border-border bg-white">
+                <div className="flex-1 text-center py-2.5 text-[11px] font-semibold text-accent border-b-2 border-accent">Needs Review <span className="bg-accent text-white text-[10px] px-1.5 py-px rounded-lg ml-1">3</span></div>
+                <div className="flex-1 text-center py-2.5 text-[11px] font-semibold text-text-3 border-b-2 border-transparent">Approved Today <span className="bg-accent-light text-accent text-[10px] px-1.5 py-px rounded-lg ml-1">24</span></div>
+                <div className="flex-1 text-center py-2.5 text-[11px] font-semibold text-text-3 border-b-2 border-transparent">Edited <span className="bg-accent-light text-accent text-[10px] px-1.5 py-px rounded-lg ml-1">2</span></div>
+              </div>
+
+              {/* Inbox Items */}
+              <div className="py-2">
+                {/* Item 1 - Expanded */}
+                <div className="px-6 py-3.5 bg-bg-card border-b border-[#f0ece6]">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-2 h-2 rounded-full bg-[#e45858] shrink-0"></div>
+                    <div className="flex-1">
+                      <div className="text-[13px] font-semibold text-text">Maria Rodriguez — Prior Auth Denial</div>
+                      <div className="text-[10px] text-text-2 mt-px">Flagged: insurance appeal, high balance</div>
+                    </div>
+                    <span className="text-[9px] font-semibold px-[7px] py-[2px] rounded-md uppercase tracking-wide bg-[#ede9fe] text-[#6366f1]">SMS</span>
+                    <span className="text-[10px] text-text-3 shrink-0">2m ago</span>
+                  </div>
+                  <div className="mt-3 bg-white border border-border rounded-xl overflow-hidden">
+                    <div className="text-[9px] font-bold text-text-3 uppercase tracking-wider px-3.5 py-2 bg-[#f9f7f4] border-b border-border flex items-center gap-1.5">
+                      <svg className="w-3 h-3 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                      Saga&apos;s suggested response
+                    </div>
+                    <div className="px-3.5 py-3 text-xs text-text leading-relaxed">
+                      Hi Maria, this is MetroWest Primary Care. We received an update on your knee MRI authorization — unfortunately the initial request was <span className="bg-accent-light px-1 py-px rounded font-semibold text-accent-dark">denied by Blue Cross</span>. Our team is already filing an appeal and we expect a decision within <span className="bg-accent-light px-1 py-px rounded font-semibold text-accent-dark">5-7 business days</span>. We&apos;ll text you as soon as we hear back. Reply STOP to opt out.
+                    </div>
+                    <div className="flex gap-2 px-3.5 py-2.5 border-t border-[#f0ece6]">
+                      <button className="px-4 py-1.5 rounded-lg text-[11px] font-semibold bg-accent text-white">Approve &amp; Send</button>
+                      <button className="px-4 py-1.5 rounded-lg text-[11px] font-semibold bg-[#f0ece6] text-text">Edit</button>
+                      <button className="px-4 py-1.5 rounded-lg text-[11px] font-semibold text-text-3 ml-auto">Dismiss</button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Item 2 */}
+                <div className="px-6 py-3.5 border-b border-[#f0ece6]">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-2 h-2 rounded-full bg-[#e45858] shrink-0"></div>
+                    <div className="flex-1">
+                      <div className="text-[13px] font-semibold text-text">James Lee — Specialist Referral</div>
+                      <div className="text-[10px] text-text-2 mt-px">Flagged: out-of-network provider selected</div>
+                    </div>
+                    <span className="text-[9px] font-semibold px-[7px] py-[2px] rounded-md uppercase tracking-wide bg-accent-light text-accent">CALL</span>
+                    <span className="text-[10px] text-text-3 shrink-0">8m ago</span>
+                  </div>
+                </div>
+
+                {/* Item 3 */}
+                <div className="px-6 py-3.5">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-2 h-2 rounded-full bg-gold shrink-0"></div>
+                    <div className="flex-1">
+                      <div className="text-[13px] font-semibold text-text">Sarah Park — Billing Dispute</div>
+                      <div className="text-[10px] text-text-2 mt-px">Flagged: balance exceeds $500</div>
+                    </div>
+                    <span className="text-[9px] font-semibold px-[7px] py-[2px] rounded-md uppercase tracking-wide bg-[#fef3e2] text-gold">EMAIL</span>
+                    <span className="text-[10px] text-text-3 shrink-0">12m ago</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Data Footer */}
+              <div className="bg-bg-dark px-6 py-2.5 flex items-center gap-2">
+                <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.6)" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+                <span className="text-[10px] text-white/60"><strong className="text-white/90">Your data stays yours.</strong> We never train models on your patient data.</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
