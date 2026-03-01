@@ -5,27 +5,27 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL("https://usesaga.ai"),
   title: {
-    default: "Saga AI — Intelligent Agents for Healthcare Operations",
-    template: "%s — Saga AI",
+    default: "Saga AI — Turn Patient Conversations Into Growth",
+    template: "%s | Saga AI",
   },
   description:
-    "AI-powered intake and outreach agents that help healthcare organizations automate patient communication, close care gaps, and reduce staff burden.",
+    "Find out how Saga can help your practice grow. AI voice agents for scheduling, outreach, and follow-ups — with full EHR context on every call. Book a demo.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://usesaga.ai",
-    siteName: "Saga AI",
-    title: "Saga AI — Intelligent Agents for Healthcare Operations",
+    siteName: "Saga AI Agents",
+    title: "Saga AI — Turn Patient Conversations Into Growth",
     description:
-      "AI voice agents that handle scheduling, outreach, and follow-ups — with full EHR context on every call.",
+      "Find out how Saga can help your practice grow. AI voice agents for scheduling, outreach, and follow-ups — with full EHR context on every call. Book a demo.",
     // TODO: Add OG image once designed (1200x630 PNG at /public/og-image.png)
     // images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Saga AI' }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Saga AI — Intelligent Agents for Healthcare Operations",
+    title: "Saga AI — Turn Patient Conversations Into Growth",
     description:
-      "AI voice agents that handle scheduling, outreach, and follow-ups — with full EHR context on every call.",
+      "Find out how Saga can help your practice grow. AI voice agents for scheduling, outreach, and follow-ups — with full EHR context on every call. Book a demo.",
   },
   robots: {
     index: true,
