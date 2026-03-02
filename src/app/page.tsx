@@ -523,9 +523,9 @@ export default function HomePage() {
 
               {/* Tabs */}
               <div className="flex border-b border-border bg-white">
-                <div className="flex-1 text-center py-2.5 text-[11px] font-semibold text-accent border-b-2 border-accent">Needs Review <span className="bg-accent text-white text-[10px] px-1.5 py-px rounded-lg ml-1">3</span></div>
-                <div className="flex-1 text-center py-2.5 text-[11px] font-semibold text-text-3 border-b-2 border-transparent">Approved Today <span className="bg-accent-light text-accent text-[10px] px-1.5 py-px rounded-lg ml-1">24</span></div>
-                <div className="flex-1 text-center py-2.5 text-[11px] font-semibold text-text-3 border-b-2 border-transparent">Edited <span className="bg-accent-light text-accent text-[10px] px-1.5 py-px rounded-lg ml-1">2</span></div>
+                <div className="flex-1 text-center py-2.5 text-[11px] max-md:text-[10px] font-semibold text-accent border-b-2 border-accent whitespace-nowrap max-md:px-1">Review <span className="bg-accent text-white text-[10px] max-md:text-[9px] px-1.5 py-px rounded-lg ml-0.5">3</span></div>
+                <div className="flex-1 text-center py-2.5 text-[11px] max-md:text-[10px] font-semibold text-text-3 border-b-2 border-transparent whitespace-nowrap max-md:px-1">Approved <span className="bg-accent-light text-accent text-[10px] max-md:text-[9px] px-1.5 py-px rounded-lg ml-0.5">24</span></div>
+                <div className="flex-1 text-center py-2.5 text-[11px] max-md:text-[10px] font-semibold text-text-3 border-b-2 border-transparent whitespace-nowrap max-md:px-1">Edited <span className="bg-accent-light text-accent text-[10px] max-md:text-[9px] px-1.5 py-px rounded-lg ml-0.5">2</span></div>
               </div>
 
               {/* Inbox Items */}
@@ -626,21 +626,21 @@ export default function HomePage() {
       {/* ═══ Numbers ═══ */}
       <section className="py-20">
         <div className="max-w-[1200px] mx-auto px-10">
-          <div className="flex justify-center gap-20 flex-wrap max-md:gap-10">
-            <div>
-              <div className="font-display text-[52px] font-bold text-accent leading-none mb-2">94%</div>
+          <div className="grid grid-cols-4 max-md:grid-cols-2 gap-y-12 gap-x-10 max-md:gap-y-10 max-md:gap-x-6">
+            <div className="text-center">
+              <div className="font-display text-[52px] max-md:text-[42px] font-bold text-accent leading-none mb-2">94%</div>
               <div className="text-sm text-text-2">Reduction in hold times</div>
             </div>
-            <div>
-              <div className="font-display text-[52px] font-bold text-accent leading-none mb-2">12%</div>
+            <div className="text-center">
+              <div className="font-display text-[52px] max-md:text-[42px] font-bold text-accent leading-none mb-2">12%</div>
               <div className="text-sm text-text-2">Increase in MoM appointments booked</div>
             </div>
-            <div>
-              <div className="font-display text-[52px] font-bold text-accent leading-none mb-2">48%</div>
+            <div className="text-center">
+              <div className="font-display text-[52px] max-md:text-[42px] font-bold text-accent leading-none mb-2">48%</div>
               <div className="text-sm text-text-2">Increase in labor capacity</div>
             </div>
-            <div>
-              <div className="font-display text-[52px] font-bold text-accent leading-none mb-2">5x</div>
+            <div className="text-center">
+              <div className="font-display text-[52px] max-md:text-[42px] font-bold text-accent leading-none mb-2">5x</div>
               <div className="text-sm text-text-2">Care gaps closed</div>
             </div>
           </div>
