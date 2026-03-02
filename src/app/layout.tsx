@@ -18,8 +18,7 @@ export const metadata: Metadata = {
     title: "Saga AI — Turn Patient Conversations Into Growth",
     description:
       "Find out how Saga can help your practice grow. AI voice agents for scheduling, outreach, and follow-ups — with full EHR context on every call. Book a demo.",
-    // TODO: Add OG image once designed (1200x630 PNG at /public/og-image.png)
-    // images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Saga AI' }],
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Saga AI — AI Agents for Healthcare Operations' }],
   },
   twitter: {
     card: "summary_large_image",

@@ -2,6 +2,35 @@ import { NextRequest, NextResponse } from 'next/server';
 import { neon } from '@neondatabase/serverless';
 import { Resend } from 'resend';
 
+// In-memory rate limiter: max 3 submissions per email per hour, 10 per IP per hour
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const WINDOW_MS = 60 * 60 * 1000; // 1 hour
+const MAX_PER_EMAIL = 3;
+const MAX_PER_IP = 10;
+
+function isRateLimited(key: string, max: number): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(key);
+
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(key, { count: 1, resetAt: now + WINDOW_MS });
+    return false;
+  }
+
+  if (entry.count >= max) return true;
+
+  entry.count++;
+  return false;
+}
+
+// Clean up expired entries periodically to prevent memory leaks
+setInterval(() => {
+  const now = Date.now();
+  for (const [key, entry] of rateLimitMap) {
+    if (now > entry.resetAt) rateLimitMap.delete(key);
+  }
+}, 10 * 60 * 1000); // every 10 minutes
+
 function getDb() {
   const databaseUrl = process.env.DATABASE_URL;
   if (!databaseUrl) {
@@ -63,6 +92,15 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: 'Please enter a valid email address.' },
         { status: 400 }
+      );
+    }
+
+    // Rate limiting
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    if (isRateLimited(`ip:${ip}`, MAX_PER_IP) || isRateLimited(`email:${email.toLowerCase()}`, MAX_PER_EMAIL)) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again later.' },
+        { status: 429 }
       );
     }
 
