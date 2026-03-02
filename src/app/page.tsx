@@ -307,29 +307,29 @@ export default function HomePage() {
           </div>
           <div className="bg-bg rounded-2xl min-h-[360px] flex items-center justify-center">
             {/* Integrations Diagram */}
-            <div className="w-full max-w-[520px] px-10 py-10 relative">
+            <div className="w-full max-w-[520px] px-10 max-md:px-4 py-10 relative">
               <div className="text-[9px] font-bold text-text-3 uppercase tracking-[1.2px] text-center mb-3">Pulls context from</div>
-              <div className="grid grid-cols-3 gap-4 relative z-[2]">
-                <div className="bg-bg-card border border-border rounded-[14px] p-4 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
-                  <div className="w-10 h-10 rounded-[10px] bg-accent-light text-accent flex items-center justify-center mx-auto mb-2">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+              <div className="grid grid-cols-3 gap-4 max-md:gap-2.5 relative z-[2]">
+                <div className="bg-bg-card border border-border rounded-[14px] p-4 max-md:p-2.5 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+                  <div className="w-10 h-10 max-md:w-8 max-md:h-8 rounded-[10px] bg-accent-light text-accent flex items-center justify-center mx-auto mb-2">
+                    <svg className="w-5 h-5 max-md:w-4 max-md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                   </div>
-                  <div className="text-xs font-bold text-text">EHR Systems</div>
-                  <div className="text-[10px] text-text-2 leading-tight">athenaHealth, Epic, Cerner, eCW</div>
+                  <div className="text-xs max-md:text-[10px] font-bold text-text">EHR Systems</div>
+                  <div className="text-[10px] max-md:text-[9px] text-text-2 leading-tight max-md:hidden">athenaHealth, Epic, Cerner, eCW</div>
                 </div>
-                <div className="bg-bg-card border border-border rounded-[14px] p-4 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
-                  <div className="w-10 h-10 rounded-[10px] bg-[#ede9fe] text-[#6366f1] flex items-center justify-center mx-auto mb-2">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                <div className="bg-bg-card border border-border rounded-[14px] p-4 max-md:p-2.5 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+                  <div className="w-10 h-10 max-md:w-8 max-md:h-8 rounded-[10px] bg-[#ede9fe] text-[#6366f1] flex items-center justify-center mx-auto mb-2">
+                    <svg className="w-5 h-5 max-md:w-4 max-md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                   </div>
-                  <div className="text-xs font-bold text-text">Insurance</div>
-                  <div className="text-[10px] text-text-2 leading-tight">Eligibility, prior auth, benefits</div>
+                  <div className="text-xs max-md:text-[10px] font-bold text-text">Insurance</div>
+                  <div className="text-[10px] max-md:text-[9px] text-text-2 leading-tight max-md:hidden">Eligibility, prior auth, benefits</div>
                 </div>
-                <div className="bg-bg-card border border-border rounded-[14px] p-4 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
-                  <div className="w-10 h-10 rounded-[10px] bg-[#fef3e2] text-gold flex items-center justify-center mx-auto mb-2">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                <div className="bg-bg-card border border-border rounded-[14px] p-4 max-md:p-2.5 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+                  <div className="w-10 h-10 max-md:w-8 max-md:h-8 rounded-[10px] bg-[#fef3e2] text-gold flex items-center justify-center mx-auto mb-2">
+                    <svg className="w-5 h-5 max-md:w-4 max-md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                   </div>
-                  <div className="text-xs font-bold text-text">Scheduling</div>
-                  <div className="text-[10px] text-text-2 leading-tight">Calendar, availability, waitlists</div>
+                  <div className="text-xs max-md:text-[10px] font-bold text-text">Scheduling</div>
+                  <div className="text-[10px] max-md:text-[9px] text-text-2 leading-tight max-md:hidden">Calendar, availability, waitlists</div>
                 </div>
               </div>
 
@@ -344,9 +344,9 @@ export default function HomePage() {
               </div>
 
               {/* Center node */}
-              <div className="w-[120px] h-[120px] bg-gradient-to-br from-accent to-accent-dark rounded-full flex flex-col items-center justify-center mx-auto relative z-[2] shadow-[0_8px_32px_rgba(43,122,120,0.35),0_0_0_6px_rgba(43,122,120,0.1)]">
-                <div className="font-display text-[22px] font-bold text-white italic tracking-tight">saga</div>
-                <div className="text-[8px] text-white/80 uppercase tracking-[1.5px] mt-0.5">AI Agent</div>
+              <div className="w-[120px] h-[120px] max-md:w-[90px] max-md:h-[90px] bg-gradient-to-br from-accent to-accent-dark rounded-full flex flex-col items-center justify-center mx-auto relative z-[2] shadow-[0_8px_32px_rgba(43,122,120,0.35),0_0_0_6px_rgba(43,122,120,0.1)]">
+                <div className="font-display text-[22px] max-md:text-[18px] font-bold text-white italic tracking-tight">saga</div>
+                <div className="text-[8px] max-md:text-[7px] text-white/80 uppercase tracking-[1.5px] mt-0.5">AI Agent</div>
               </div>
 
               {/* Arrow: Communicates via */}
@@ -360,27 +360,27 @@ export default function HomePage() {
               </div>
 
               <div className="text-[9px] font-bold text-text-3 uppercase tracking-[1.2px] text-center mb-3">Reaches patients on</div>
-              <div className="grid grid-cols-3 gap-4 relative z-[2]">
-                <div className="bg-bg-card border border-border rounded-[14px] p-4 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
-                  <div className="w-10 h-10 rounded-[10px] bg-accent-light text-accent flex items-center justify-center mx-auto mb-2">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              <div className="grid grid-cols-3 gap-4 max-md:gap-2.5 relative z-[2]">
+                <div className="bg-bg-card border border-border rounded-[14px] p-4 max-md:p-2.5 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+                  <div className="w-10 h-10 max-md:w-8 max-md:h-8 rounded-[10px] bg-accent-light text-accent flex items-center justify-center mx-auto mb-2">
+                    <svg className="w-5 h-5 max-md:w-4 max-md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                   </div>
-                  <div className="text-xs font-bold text-text">Voice</div>
-                  <div className="text-[10px] text-text-2 leading-tight">Inbound &amp; outbound calls</div>
+                  <div className="text-xs max-md:text-[10px] font-bold text-text">Voice</div>
+                  <div className="text-[10px] max-md:text-[9px] text-text-2 leading-tight max-md:hidden">Inbound &amp; outbound calls</div>
                 </div>
-                <div className="bg-bg-card border border-border rounded-[14px] p-4 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
-                  <div className="w-10 h-10 rounded-[10px] bg-[#ede9fe] text-[#6366f1] flex items-center justify-center mx-auto mb-2">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                <div className="bg-bg-card border border-border rounded-[14px] p-4 max-md:p-2.5 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+                  <div className="w-10 h-10 max-md:w-8 max-md:h-8 rounded-[10px] bg-[#ede9fe] text-[#6366f1] flex items-center justify-center mx-auto mb-2">
+                    <svg className="w-5 h-5 max-md:w-4 max-md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
                   </div>
-                  <div className="text-xs font-bold text-text">SMS</div>
-                  <div className="text-[10px] text-text-2 leading-tight">Two-way text messaging</div>
+                  <div className="text-xs max-md:text-[10px] font-bold text-text">SMS</div>
+                  <div className="text-[10px] max-md:text-[9px] text-text-2 leading-tight max-md:hidden">Two-way text messaging</div>
                 </div>
-                <div className="bg-bg-card border border-border rounded-[14px] p-4 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
-                  <div className="w-10 h-10 rounded-[10px] bg-[#fef3e2] text-gold flex items-center justify-center mx-auto mb-2">
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                <div className="bg-bg-card border border-border rounded-[14px] p-4 max-md:p-2.5 text-center shadow-[0_4px_16px_rgba(0,0,0,0.04)]">
+                  <div className="w-10 h-10 max-md:w-8 max-md:h-8 rounded-[10px] bg-[#fef3e2] text-gold flex items-center justify-center mx-auto mb-2">
+                    <svg className="w-5 h-5 max-md:w-4 max-md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                   </div>
-                  <div className="text-xs font-bold text-text">Email</div>
-                  <div className="text-[10px] text-text-2 leading-tight">Outreach &amp; follow-ups</div>
+                  <div className="text-xs max-md:text-[10px] font-bold text-text">Email</div>
+                  <div className="text-[10px] max-md:text-[9px] text-text-2 leading-tight max-md:hidden">Outreach &amp; follow-ups</div>
                 </div>
               </div>
             </div>
