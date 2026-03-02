@@ -45,12 +45,12 @@ function getResend() {
   return new Resend(apiKey);
 }
 
-async function sendNotification(name: string, email: string, practice: string, role?: string, phone?: string, ehr?: string, providerCount?: string, painPoint?: string) {
+async function sendNotification(name: string, email: string, practice: string, role?: string, phone?: string, ehr?: string, providerCount?: string, painPoint?: string): Promise<{ success: boolean; error?: string }> {
   const resend = getResend();
-  if (!resend) return;
+  if (!resend) return { success: false, error: 'RESEND_API_KEY not set' };
 
   try {
-    await resend.emails.send({
+    const result = await resend.emails.send({
       from: 'Saga AI <notifications@usesaga.ai>',
       to: 'jenica@usesaga.ai',
       subject: `New demo request from ${name} at ${practice}`,
@@ -69,8 +69,10 @@ async function sendNotification(name: string, email: string, practice: string, r
         <p style="color: #6d635a; font-size: 13px;">This notification was sent by Saga AI.</p>
       `,
     });
+    return { success: true, error: JSON.stringify(result) };
   } catch (error) {
     console.error('Failed to send notification email:', error);
+    return { success: false, error: String(error) };
   }
 }
 
@@ -134,11 +136,11 @@ export async function POST(request: NextRequest) {
       VALUES (${name}, ${email}, ${practice}, ${role || null}, ${phone || null}, ${ehr || null}, ${providerCount || null}, ${painPoint || null})
     `;
 
-    // Send notification email (non-blocking — don't fail the request if email fails)
-    sendNotification(name, email, practice, role, phone, ehr, providerCount, painPoint);
+    // Send notification email
+    const emailResult = await sendNotification(name, email, practice, role, phone, ehr, providerCount, painPoint);
 
     return NextResponse.json(
-      { success: true, message: 'Demo request received!' },
+      { success: true, message: 'Demo request received!', _debug_email: emailResult },
       { status: 200 }
     );
   } catch (error) {
