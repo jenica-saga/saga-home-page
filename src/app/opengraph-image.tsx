@@ -1,10 +1,17 @@
 import { ImageResponse } from 'next/og';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
 
 export const alt = 'Saga AI — Turn Every Conversation Into Growth';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 export default async function Image() {
+  const [playfairBold, playfairBoldItalic] = await Promise.all([
+    readFile(join(process.cwd(), 'src/app/fonts/PlayfairDisplay-Bold.ttf')),
+    readFile(join(process.cwd(), 'src/app/fonts/PlayfairDisplay-BoldItalic.ttf')),
+  ]);
+
   return new ImageResponse(
     (
       <div
@@ -32,35 +39,35 @@ export default async function Image() {
           }}
         />
 
-        {/* Top: logo */}
+        {/* Logo */}
         <div
           style={{
+            fontFamily: 'Playfair Display',
             fontSize: 36,
             fontWeight: 700,
             color: '#2d2926',
             display: 'flex',
-            fontStyle: 'italic',
-            letterSpacing: '-0.5px',
           }}
         >
           saga
         </div>
 
-        {/* Middle: headline */}
+        {/* Middle: headline + subtitle */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
           <div
             style={{
+              fontFamily: 'Playfair Display',
               fontSize: 72,
               fontWeight: 700,
               color: '#2d2926',
               lineHeight: 1.05,
-              letterSpacing: '-2px',
+              letterSpacing: '-1px',
               display: 'flex',
               flexWrap: 'wrap',
               maxWidth: '850px',
             }}
           >
-            <span>Turn every conversation into&nbsp;</span>
+            Turn every conversation into{' '}
             <span style={{ color: '#2b7a78', fontStyle: 'italic' }}>growth.</span>
           </div>
 
@@ -104,6 +111,22 @@ export default async function Image() {
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: [
+        {
+          name: 'Playfair Display',
+          data: playfairBold,
+          style: 'normal',
+          weight: 700,
+        },
+        {
+          name: 'Playfair Display',
+          data: playfairBoldItalic,
+          style: 'italic',
+          weight: 700,
+        },
+      ],
+    }
   );
 }
