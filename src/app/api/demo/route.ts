@@ -16,7 +16,7 @@ function getResend() {
   return new Resend(apiKey);
 }
 
-async function sendNotification(name: string, email: string, practice: string, phone?: string) {
+async function sendNotification(name: string, email: string, practice: string, phone?: string, ehr?: string, providerCount?: string) {
   const resend = getResend();
   if (!resend) return;
 
@@ -30,6 +30,8 @@ async function sendNotification(name: string, email: string, practice: string, p
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Practice:</strong> ${practice}</p>
+        ${ehr ? `<p><strong>EHR System:</strong> ${ehr}</p>` : ''}
+        ${providerCount ? `<p><strong>Provider Count:</strong> ${providerCount}</p>` : ''}
         ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
         <p><strong>Submitted:</strong> ${new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' })}</p>
         <hr />
@@ -44,7 +46,7 @@ async function sendNotification(name: string, email: string, practice: string, p
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, practice, phone } = body;
+    const { name, email, practice, phone, ehr, providerCount } = body;
 
     // Basic validation
     if (!name || !email || !practice) {
@@ -72,18 +74,24 @@ export async function POST(request: NextRequest) {
         email TEXT NOT NULL,
         practice TEXT NOT NULL,
         phone TEXT,
+        ehr TEXT,
+        provider_count TEXT,
         created_at TIMESTAMPTZ DEFAULT NOW()
       )
     `;
 
+    // Add new columns if they don't exist (for existing tables)
+    await sql`ALTER TABLE demo_requests ADD COLUMN IF NOT EXISTS ehr TEXT`;
+    await sql`ALTER TABLE demo_requests ADD COLUMN IF NOT EXISTS provider_count TEXT`;
+
     // Insert the demo request
     await sql`
-      INSERT INTO demo_requests (name, email, practice, phone)
-      VALUES (${name}, ${email}, ${practice}, ${phone || null})
+      INSERT INTO demo_requests (name, email, practice, phone, ehr, provider_count)
+      VALUES (${name}, ${email}, ${practice}, ${phone || null}, ${ehr || null}, ${providerCount || null})
     `;
 
     // Send notification email (non-blocking — don't fail the request if email fails)
-    sendNotification(name, email, practice, phone);
+    sendNotification(name, email, practice, phone, ehr, providerCount);
 
     return NextResponse.json(
       { success: true, message: 'Demo request received!' },
@@ -103,7 +111,7 @@ export async function GET() {
     const sql = getDb();
 
     const requests = await sql`
-      SELECT id, name, email, practice, phone, created_at
+      SELECT id, name, email, practice, phone, ehr, provider_count, created_at
       FROM demo_requests
       ORDER BY created_at DESC
       LIMIT 100

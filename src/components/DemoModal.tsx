@@ -12,6 +12,8 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
   const [email, setEmail] = useState('');
   const [practice, setPractice] = useState('');
   const [phone, setPhone] = useState('');
+  const [ehr, setEhr] = useState('');
+  const [providerCount, setProviderCount] = useState('');
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMsg, setErrorMsg] = useState('');
   const modalRef = useRef<HTMLDivElement>(null);
@@ -49,7 +51,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
       const res = await fetch('/api/demo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, practice, phone }),
+        body: JSON.stringify({ name, email, practice, phone, ehr, providerCount }),
       });
 
       const data = await res.json();
@@ -71,6 +73,8 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
     setEmail('');
     setPractice('');
     setPhone('');
+    setEhr('');
+    setProviderCount('');
     setStatus('idle');
     setErrorMsg('');
   };
@@ -161,6 +165,42 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                   placeholder="Town Center Pediatrics"
                   className="w-full px-4 py-2.5 rounded-xl border border-border bg-bg text-sm text-text placeholder:text-text-3 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors"
                 />
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-text-2 uppercase tracking-wide mb-1.5">EHR System *</label>
+                <select
+                  value={ehr}
+                  onChange={(e) => setEhr(e.target.value)}
+                  required
+                  className="w-full px-4 py-2.5 rounded-xl border border-border bg-bg text-sm text-text focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors appearance-none"
+                  style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239c948b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 16px center' }}
+                >
+                  <option value="" disabled>Select your EHR</option>
+                  <option value="athenahealth">athenaHealth</option>
+                  <option value="epic">Epic</option>
+                  <option value="cerner">Cerner / Oracle Health</option>
+                  <option value="eclinicalworks">eClinicalWorks</option>
+                  <option value="greenway">Greenway</option>
+                  <option value="nextgen">NextGen</option>
+                  <option value="drchrono">DrChrono</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-xs font-semibold text-text-2 uppercase tracking-wide mb-1.5">Number of Providers *</label>
+                <select
+                  value={providerCount}
+                  onChange={(e) => setProviderCount(e.target.value)}
+                  required
+                  className="w-full px-4 py-2.5 rounded-xl border border-border bg-bg text-sm text-text focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-colors appearance-none"
+                  style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239c948b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 16px center' }}
+                >
+                  <option value="" disabled>Select practice size</option>
+                  <option value="1-5">1–5 providers</option>
+                  <option value="6-20">6–20 providers</option>
+                  <option value="21-50">21–50 providers</option>
+                  <option value="50+">50+ providers</option>
+                </select>
               </div>
               <div>
                 <label className="block text-xs font-semibold text-text-2 uppercase tracking-wide mb-1.5">Phone (optional)</label>
