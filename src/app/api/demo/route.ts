@@ -16,7 +16,7 @@ function getResend() {
   return new Resend(apiKey);
 }
 
-async function sendNotification(name: string, email: string, practice: string, phone?: string, ehr?: string, providerCount?: string) {
+async function sendNotification(name: string, email: string, practice: string, role?: string, phone?: string, ehr?: string, providerCount?: string, painPoint?: string) {
   const resend = getResend();
   if (!resend) return;
 
@@ -30,8 +30,10 @@ async function sendNotification(name: string, email: string, practice: string, p
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Practice:</strong> ${practice}</p>
+        ${role ? `<p><strong>Role:</strong> ${role}</p>` : ''}
         ${ehr ? `<p><strong>EHR System:</strong> ${ehr}</p>` : ''}
         ${providerCount ? `<p><strong>Provider Count:</strong> ${providerCount}</p>` : ''}
+        ${painPoint ? `<p><strong>Biggest Challenge:</strong> ${painPoint}</p>` : ''}
         ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
         <p><strong>Submitted:</strong> ${new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' })}</p>
         <hr />
@@ -46,7 +48,7 @@ async function sendNotification(name: string, email: string, practice: string, p
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, practice, phone, ehr, providerCount } = body;
+    const { name, email, practice, role, phone, ehr, providerCount, painPoint } = body;
 
     // Basic validation
     if (!name || !email || !practice) {
@@ -74,8 +76,10 @@ export async function POST(request: NextRequest) {
         email TEXT NOT NULL,
         practice TEXT NOT NULL,
         phone TEXT,
+        role TEXT,
         ehr TEXT,
         provider_count TEXT,
+        pain_point TEXT,
         created_at TIMESTAMPTZ DEFAULT NOW()
       )
     `;
@@ -83,15 +87,17 @@ export async function POST(request: NextRequest) {
     // Add new columns if they don't exist (for existing tables)
     await sql`ALTER TABLE demo_requests ADD COLUMN IF NOT EXISTS ehr TEXT`;
     await sql`ALTER TABLE demo_requests ADD COLUMN IF NOT EXISTS provider_count TEXT`;
+    await sql`ALTER TABLE demo_requests ADD COLUMN IF NOT EXISTS role TEXT`;
+    await sql`ALTER TABLE demo_requests ADD COLUMN IF NOT EXISTS pain_point TEXT`;
 
     // Insert the demo request
     await sql`
-      INSERT INTO demo_requests (name, email, practice, phone, ehr, provider_count)
-      VALUES (${name}, ${email}, ${practice}, ${phone || null}, ${ehr || null}, ${providerCount || null})
+      INSERT INTO demo_requests (name, email, practice, role, phone, ehr, provider_count, pain_point)
+      VALUES (${name}, ${email}, ${practice}, ${role || null}, ${phone || null}, ${ehr || null}, ${providerCount || null}, ${painPoint || null})
     `;
 
     // Send notification email (non-blocking — don't fail the request if email fails)
-    sendNotification(name, email, practice, phone, ehr, providerCount);
+    sendNotification(name, email, practice, role, phone, ehr, providerCount, painPoint);
 
     return NextResponse.json(
       { success: true, message: 'Demo request received!' },
@@ -111,7 +117,7 @@ export async function GET() {
     const sql = getDb();
 
     const requests = await sql`
-      SELECT id, name, email, practice, phone, ehr, provider_count, created_at
+      SELECT id, name, email, practice, role, phone, ehr, provider_count, pain_point, created_at
       FROM demo_requests
       ORDER BY created_at DESC
       LIMIT 100
