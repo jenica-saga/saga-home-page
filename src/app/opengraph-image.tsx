@@ -1,21 +1,10 @@
 import { ImageResponse } from 'next/og';
 
-export const runtime = 'edge';
 export const alt = 'Saga AI — AI Agents for Healthcare Operations';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
 export default async function Image() {
-  const playfair = fetch(
-    new URL('https://fonts.gstatic.com/s/playfairdisplay/v37/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtM.ttf')
-  ).then((res) => res.arrayBuffer());
-
-  const inter = fetch(
-    new URL('https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hjQ.ttf')
-  ).then((res) => res.arrayBuffer());
-
-  const [playfairData, interData] = await Promise.all([playfair, inter]);
-
   return new ImageResponse(
     (
       <div
@@ -46,12 +35,12 @@ export default async function Image() {
         {/* Logo */}
         <div
           style={{
-            fontFamily: 'Playfair Display',
             fontSize: 48,
             fontWeight: 700,
             color: '#2d2926',
             marginBottom: 32,
             display: 'flex',
+            fontStyle: 'italic',
           }}
         >
           saga
@@ -60,7 +49,6 @@ export default async function Image() {
         {/* Headline */}
         <div
           style={{
-            fontFamily: 'Playfair Display',
             fontSize: 64,
             fontWeight: 700,
             color: '#2d2926',
@@ -76,7 +64,6 @@ export default async function Image() {
         {/* Subheadline */}
         <div
           style={{
-            fontFamily: 'Inter',
             fontSize: 26,
             color: '#6d635a',
             lineHeight: 1.5,
@@ -92,7 +79,6 @@ export default async function Image() {
           style={{
             display: 'flex',
             gap: 16,
-            marginTop: 48,
             position: 'absolute',
             bottom: 80,
             left: 80,
@@ -110,7 +96,6 @@ export default async function Image() {
                 padding: '10px 20px',
                 borderRadius: 100,
                 fontSize: 18,
-                fontFamily: 'Inter',
                 fontWeight: 600,
               }}
             >
@@ -125,7 +110,6 @@ export default async function Image() {
             position: 'absolute',
             bottom: 80,
             right: 80,
-            fontFamily: 'Inter',
             fontSize: 22,
             color: '#9c948b',
             display: 'flex',
@@ -135,22 +119,6 @@ export default async function Image() {
         </div>
       </div>
     ),
-    {
-      ...size,
-      fonts: [
-        {
-          name: 'Playfair Display',
-          data: playfairData,
-          style: 'normal',
-          weight: 700,
-        },
-        {
-          name: 'Inter',
-          data: interData,
-          style: 'normal',
-          weight: 400,
-        },
-      ],
-    }
+    { ...size }
   );
 }
